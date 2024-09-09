@@ -1,0 +1,9 @@
+feedback = []
+
+def collect_feedback(book_title, rating):
+    feedback.append({"title": book_title, "rating": rating})
+    # Process feedback to improve recommendations
+
+# Example usage:
+collect_feedback("Book A", 5)
+print(feedback)

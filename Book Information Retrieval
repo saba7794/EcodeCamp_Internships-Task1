@@ -1,0 +1,16 @@
+import requests
+
+def get_books_from_google(query):
+    url = f"https://www.googleapis.com/books/v1/volumes?q={query}"
+    response = requests.get(url)
+    return response.json()
+
+# Example usage:
+response = get_books_from_google("Harry Potter")
+for item in response.get("items", []):
+    book = item["volumeInfo"]
+    print(f"Title: {book.get('title')}")
+    print(f"Authors: {', '.join(book.get('authors', []))}")
+    print(f"Genre: {', '.join(book.get('categories', []))}")
+    print(f"Rating: {book.get('averageRating')}")
+    print()
